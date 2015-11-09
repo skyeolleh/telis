@@ -1,0 +1,109 @@
+
+
+##
+
+맵 이름
+
+Town
+
+Town_House1
+Town_House2
+
+
+
+
+
+Forest
+
+
+
+
+
+Telis Image Array
+
+[0] : Person1 이미지
+[1] : Person1 의 일러스트 이미지
+
+
+
+Telis Map Array
+
+[0] : Forest 시작의 숲 이미지
+[1] : Town 모험자의 마을 이미지
+
+
+
+
+Texter Dialog Array
+
+[0] : Prolog 프롤로그 및 튜토리얼 정보
+[1] : Town에서의 집에 들어가기위해 클릭시 정보
+
+
+
+
+
+
+##
+맵정보
+
+Town : 
+첫번째 집 : 
+1125, 870
+1200, 980
+
+두번째 집 : 
+
+
+
+
+
+
+
+Person1 의 정보
+
+Color
+Skin : #ffefd1
+Head : #91760a
+Jacket : #fff
+Pants : #0018ff
+Shose : #000
+
+Width : 60px
+Height : 120px
+
+
+
+
+
+
+
+
+
+
+
+###
+일반 맵의 크기
+
+
+작은 맵 : 1280 x 720
+중간 맵 : 2000 x 2000
+큰 맵 :   3000 x 3000
+
+
+
+
+
+
+
+보통 사람의 크기
+
+가로 : 60px
+세로 : 120px
+
+
+한 타일의 기준 
+
+가로 : 2.5 cm
+세로 : 2.5 cm
+
