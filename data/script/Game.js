@@ -8,18 +8,18 @@
  *
  */
 
-window.addEventListener(
-  "mousedown",
-  function (e) {
-    alert(
-      "X : " +
-        (telis.worldX + e.clientX) +
-        "\nY : " +
-        (telis.worldY + e.clientY)
-    );
-  },
-  false
-);
+// window.addEventListener(
+//   "mousedown",
+//   function (e) {
+//     alert(
+//       "X : " +
+//         (telis.worldX + e.clientX) +
+//         "\nY : " +
+//         (telis.worldY + e.clientY)
+//     );
+//   },
+//   false
+// );
 
 addEventListener("keydown", keyDown, false);
 addEventListener("keyup", keyUp, false);
@@ -92,7 +92,7 @@ function Loading() {
   if (loader >= total) {
     telis.showText("Done...", 800, 320, "#000");
     telis.showText("Loading Game...", 500, 350, "#000");
-    setTimeout(() => LoadComplete(), 2000);
+    setTimeout(() => LoadComplete(), 500);
   }
 }
 
@@ -137,12 +137,27 @@ function Render() {
       ctx.drawImage(telis.getMapImage(telis.current_map), 0, 0);
       break;
   }
-
+  //   console.log(telis.getImage("Ironman"), "image");
   /* Unit or Object Drawing */
+  //   ctx.drawImage(
+  //     telis.getImage("Ironman"),
+  //     player.x - player.width / 2,
+  //     player.y - player.height / 2
+  //   ); // 플레이어
+  //   telis.getSprite("Man");
+  let currentFrame = 0;
+
+  let manSprite = telis.getSprite("Man");
   ctx.drawImage(
-    telis.getImage("Ironman"),
+    manSprite.img,
+    parseInt(player.frameIndex) * manSprite.width,
+    0,
+    manSprite.width,
+    manSprite.height,
     player.x - player.width / 2,
-    player.y - player.height / 2
+    player.y - player.height / 2,
+    manSprite.width,
+    manSprite.height
   ); // 플레이어
 
   if (setting.show) {
@@ -154,6 +169,18 @@ function Render() {
       0,
       persentageWidth(100),
       persentageHeight(5)
+    );
+    telis.showText(
+      player.moving,
+      persentageWidth(50),
+      persentageHeight(1),
+      "#FFF"
+    );
+    telis.showText(
+      player.frameIndex,
+      persentageWidth(60),
+      persentageHeight(1),
+      "#FFF"
     );
     telis.showText(
       telis.getMapName(telis.current_map),
@@ -190,18 +217,22 @@ function keyDown(e) {
   switch (e.keyCode) {
     case 37:
       player.left = true;
+      player.moving = true;
       break;
 
     case 39:
       player.right = true;
+      player.moving = true;
       break;
 
     case 38:
       player.up = true;
+      player.moving = true;
       break;
 
     case 40:
       player.down = true;
+      player.moving = true;
       break;
 
     case 16:
@@ -230,18 +261,22 @@ function keyUp(e) {
   switch (e.keyCode) {
     case 37:
       player.left = false;
+      player.moving = false;
       break;
 
     case 39:
       player.right = false;
+      player.moving = false;
       break;
 
     case 38:
       player.up = false;
+      player.moving = false;
       break;
 
     case 40:
       player.down = false;
+      player.moving = false;
       break;
     case 32:
       player.act = false;
